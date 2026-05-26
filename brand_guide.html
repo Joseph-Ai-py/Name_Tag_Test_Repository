@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <title>숲결 브랜드 아이덴티티 가이드</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+/* WeasyPrint 페이지 설정 */
+@page { size:A4; margin:0; }
+
+:root {
+  --seed:#F5EBE0; --sd:#B87C3B; --sl:#FFFFFF;
+  --bg:#FDFAF6; --text:#1E1B18; --muted:#7A7570; --border:#E8DDD0; --white:#FFFFFF;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+  font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  background:var(--bg); color:var(--text); }
+/* ── 커버 ── */
+.cover { width:210mm; height:297mm; background:var(--seed); position:relative; break-after:page; overflow:hidden; }
+.deco  { position:absolute; border-radius:50%; background:rgba(0,0,0,0.05); } /* 배경에 맞게 데코만 살짝 어둡게 */
+.deco1 { width:360px; height:360px; top:-80px; right:-80px; }
+.deco2 { width:200px; height:200px; bottom:120px; left:-60px; }
+.deco3 { width:100px; height:100px; bottom:60px; right:100px; background:rgba(0,0,0,0.08); }
+.cv-content { position:absolute; bottom:0; left:0; right:0; padding:0 64px 70px; }
+.cv-tag     { display:inline-block; border:1px solid var(--sd); border-radius:20px;
+               padding:5px 16px; font-size:10px; letter-spacing:3px; color:var(--sd);
+               text-transform:uppercase; margin-bottom:22px; opacity:0.8; }
+.cv-brand   { font-family:'Noto Serif KR',serif; font-size:60px; font-weight:700;
+               color:var(--sd); letter-spacing:6px; line-height:1.1; margin-bottom:6px; }
+.cv-en      { font-size:15px; font-weight:300; color:var(--sd); letter-spacing:4px; margin-bottom:24px; opacity:0.7; }
+.cv-div     { width:40px; height:2px; background:var(--sd); margin-bottom:18px; opacity:0.5; }
+.cv-meaning { font-size:14px; color:var(--sd); line-height:1.7; margin-bottom:7px; opacity:0.9; }
+.cv-slogan  { font-size:12px; color:var(--sd); font-style:italic; opacity:0.7; }
+.cv-year    { position:absolute; top:48px; right:64px; font-size:11px; color:var(--sd); letter-spacing:2px; opacity:0.5; }
+
+
+
+/* ── 섹션 공통 ── */
+.section { padding:48px 58px; background:var(--bg); break-inside:avoid-page; }
+.section + .section { border-top:1px solid var(--border); }
+.sec-hdr  { display:block; margin-bottom:28px; padding-bottom:17px; border-bottom:1px solid var(--border); }
+.sec-num  { font-size:10px; font-weight:700; letter-spacing:4px; color:var(--sd); text-transform:uppercase; display:block; margin-bottom:5px; }
+.sec-title{ font-family:'Noto Serif KR',serif; font-size:21px; font-weight:700; color:var(--text); display:block; margin-bottom:4px; }
+.sec-sub  { font-size:11px; color:var(--muted); display:block; line-height:1.7; }
+
+/* ── 기본정보 ── */
+.basic::after { content:""; display:table; clear:both; }
+.bi      { float:left; width:calc(50% - 10px); margin-right:20px; margin-bottom:16px; }
+.bi:nth-child(2n){ margin-right:0; }
+.bi.full { width:100%; float:none; margin-right:0; }
+.bi-lbl  { font-size:9px; font-weight:700; letter-spacing:3px; color:var(--sd); text-transform:uppercase; margin-bottom:4px; }
+.bi-val  { font-size:14px; font-weight:600; color:var(--text); line-height:1.5; }
+.bi-desc { font-size:11px; color:var(--muted); margin-top:3px; }
+
+/* ── 카드 ── */
+.card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:20px 22px; break-inside:avoid; }
+.c-lbl  { font-size:9px; font-weight:700; letter-spacing:3px; color:var(--muted); text-transform:uppercase; margin-bottom:7px; }
+.c-ttl  { font-size:15px; font-weight:600; color:var(--text); margin-bottom:5px; line-height:1.4; }
+.c-body { font-size:12px; color:#4A4642; line-height:1.85; }
+
+/* 2열 그리드 */
+.g2::after { content:""; display:table; clear:both; }
+.g2 .card  { float:left; width:calc(50% - 10px); margin-right:20px; margin-bottom:16px; }
+.g2 .card:nth-child(2n){ margin-right:0; }
+.g2 .card.span2{ width:100%; float:none; margin-right:0; }
+
+/* 3열 그리드 */
+.g3::after { content:""; display:table; clear:both; }
+.g3 .card  { float:left; width:calc(33.333% - 14px); margin-right:20px; margin-bottom:16px; }
+.g3 .card:nth-child(3n){ margin-right:0; }
+
+/* 색상 스워치 (g3 안에서) */
+.swatch     { width:100%; height:66px; border-radius:10px; display:block; margin-bottom:9px; }
+.sw-name    { font-size:12px; font-weight:600; color:var(--text); }
+.sw-hex     { font-size:11px; color:var(--muted); }
+.sw-desc    { font-size:11px; color:var(--muted); margin-top:2px; }
+
+/* ── 하이라이트 박스 ── */
+.hl        { background:var(--seed); border-radius:14px; padding:28px 34px; margin-bottom:20px; break-inside:avoid; }
+.hl p      { font-size:13px; line-height:2.1; color:rgba(30,27,24,0.88); }
+.hl .c-lbl { color:rgba(30,27,24,0.48); margin-bottom:9px; }
+.hl .c-ttl { color:var(--text); font-size:17px; }
+
+/* ── 태그 ── */
+.tags { margin-top:9px; }
+.tag  { display:inline-block; border-radius:20px; padding:4px 13px; font-size:11px;
+        margin:3px 3px 3px 0; border:1px solid var(--border); background:var(--white); color:var(--text); }
+.tag.red   { background:#FFF0EE; border-color:#F5C4BB; color:#A63E2E; }
+.tag.green { background:#F0F7EE; border-color:#B8D9B0; color:#2A6E1E; }
+.tag.blue  { background:#EEF3FF; border-color:#B8C9F5; color:#2A3E9E; }
+
+/* ── 테이블 ── */
+table       { width:100%; border-collapse:collapse; margin-top:8px; font-size:12px; }
+thead th    { background:var(--sd); color:#fff; font-size:10px; font-weight:600; text-align:left; padding:10px 14px; }
+tbody td    { padding:11px 14px; border-bottom:1px solid var(--border); vertical-align:top; line-height:1.75; color:#3A3733; }
+tbody tr:nth-child(even) td { background:#FAF7F3; }
+tbody td strong { color:var(--text); font-weight:600; }
+
+/* ── 슬로건 ── */
+.sl-box  { text-align:center; padding:36px; background:var(--white); border:2px solid var(--seed);
+           border-radius:14px; margin-bottom:20px; break-inside:avoid; }
+.sl-ko   { font-family:'Noto Serif KR',serif; font-size:23px; font-weight:700; color:var(--sd); line-height:1.5; }
+.sl-en   { font-size:12px; color:var(--muted); margin-top:7px; font-style:italic; }
+.sub-lst { list-style:none; margin-top:4px; }
+.sub-lst li { padding:13px 18px; background:var(--white); border-left:3px solid var(--seed);
+              margin-bottom:10px; border-radius:0 10px 10px 0; font-size:13px; font-weight:500;
+              color:var(--text); break-inside:avoid; }
+.sub-lst li .note { display:block; font-size:11px; color:var(--muted); font-weight:400; margin-top:4px; }
+
+/* ── 브랜드 스토리 ── */
+.story    { font-size:13px; line-height:2.2; color:#3A3733; background:var(--white);
+            border:1px solid var(--border); border-radius:14px; padding:30px 34px; }
+.story p  { margin-bottom:15px; }
+.story p:last-child { margin-bottom:0; }
+
+/* ── 브랜드 약속 채널 ── */
+.promise     { background:var(--white); border:1px solid var(--border); border-left:4px solid var(--sd);
+               border-radius:0 10px 10px 0; padding:15px 19px; margin-bottom:12px; break-inside:avoid; }
+.promise .ch { font-size:11px; font-weight:700; color:var(--sd); letter-spacing:1px; margin-bottom:5px; }
+.promise .ct { font-size:12px; color:#4A4642; line-height:1.8; }
+
+/* ── 배지 ── */
+.badge { display:inline-block; background:var(--sd); color:#fff; font-size:9px; font-weight:700;
+         letter-spacing:1px; border-radius:4px; padding:2px 7px; margin-right:7px; vertical-align:middle; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="deco deco1"></div>
+  <div class="deco deco2"></div>
+  <div class="deco deco3"></div>
+  <div class="cv-year">Brand Identity Guide · 2026</div>
+  <div class="cv-content">
+    <span class="cv-tag">Brand Identity</span>
+    <div class="cv-brand">숲결</div>
+    <div class="cv-en">Forest Gyeol</div>
+    <div class="cv-div"></div>
+    <div class="cv-meaning">평화로운 오후의 기억을 담은 레트로한 소품들</div>
+    <div class="cv-slogan">"당신의 시선이 머무는 사적인 공간"</div>
+  </div>
+</div>
+<div class="section">
+  <div class="sec-hdr">
+    <span class="sec-num">Brand Overview</span>
+    <span class="sec-title">브랜드 아이덴티티 (Brand Identity)</span>
+    <span class="sec-sub">숲결 브랜드의 핵심 정보를 한눈에 확인하세요.</span>
+  </div>
+
+  <!-- 1. 초기 기획 아이디어 요약 (상단으로 배치) -->
+  <div class="hl" style="margin-bottom:32px;">
+    <div class="c-lbl">초기 기획 아이디어 요약</div>
+    <table style="margin:6px 0 0;">
+      <tbody>
+        <tr><td style="width:22%;font-weight:600;color:var(--text);">업종 / 서비스</td><td>20대를 위한 감성 소품 온라인 셀렉샵</td></tr>
+        <tr><td style="font-weight:600;color:var(--text);">브랜드 감성</td><td>따뜻한 · 감성적인 · 자연친화적 · 레트로한</td></tr>
+        <tr><td style="font-weight:600;color:var(--text);">핵심 타겟</td><td>30대 직장 여성 — 소소한 취미생활, 나만의 공간 꾸미기에 관심</td></tr>
+        <tr><td style="font-weight:600;color:var(--text);">핵심 키워드</td><td>따뜻함 · 일상 · 발견</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 2. 브랜드 핵심 정보 (디자인 박스로 묶어서 재배치) -->
+  <div class="c-lbl" style="margin-bottom:12px;">Core Brand Assets · 핵심 브랜드 자산</div>
+  <div class="basic" style="background:var(--white); border:1px solid var(--border); border-radius:14px; padding:28px 30px 12px;">
+
+    <!-- 첫 번째 줄: 슬로건 (문장형이므로 전체 너비로 빼고 타이포그래피 강조) -->
+    <div class="bi full" style="border-bottom:1px dashed var(--border); padding-bottom:16px; margin-bottom:20px;">
+      <div class="bi-lbl">슬로건</div>
+      <div class="bi-val" style="font-size:18px; font-family:'Noto Serif KR',serif; color:var(--sd); letter-spacing:-0.5px;">"당신의 시선이 머무는 사적인 공간"</div>
+    </div>
+
+    <!-- 두 번째 줄: 브랜드명 & 브랜드 컬러 (절반씩 2열 배치) -->
+    <div class="bi">
+      <div class="bi-lbl">브랜드명</div>
+      <div class="bi-val" style="font-size:16px;">숲결 <span style="font-weight:300;color:var(--muted);font-size:12px;">/ Forest Gyeol</span></div>
+    </div>
+    <div class="bi">
+      <div class="bi-lbl">브랜드 컬러</div>
+      <div class="bi-val" style="display:flex;align-items:center;gap:10px; font-size:13px;">
+        <span style="display:inline-block;width:20px;height:20px;border-radius:50%;background:#F5EBE0;border:1px solid rgba(0,0,0,0.1);flex-shrink:0;"></span>
+        #F5EBE0 &nbsp;<span style="font-size:11px;color:var(--muted);">심리적 안정감을 주는 부드러운 베이지</span>
+      </div>
+    </div>
+
+    <!-- 세 번째 줄: 브랜드 한 줄 정의 (문장이므로 전체 너비) -->
+    <div class="bi full" style="clear:both; margin-top:4px;">
+      <div class="bi-lbl">브랜드 한 줄 정의</div>
+      <div class="bi-val" style="font-weight:500;">평화로운 오후의 기억을 담은 레트로한 소품들</div>
+    </div>
+
+    <!-- 구분선 (실무 자산과 아이덴티티 분리) -->
+    <div style="clear:both; width:100%; height:1px; background:var(--border); margin:12px 0 20px;"></div>
+
+    <!-- 네 번째 줄: 실무 자산인 도메인과 SNS 핸들 (절반씩 2열 배치) -->
+    <div class="bi">
+      <div class="bi-lbl">추천 도메인</div>
+      <div class="tags"><span class="tag blue">forestgyeol.com</span><span class="tag blue">gyeolforest.shop</span><span class="tag blue">soopgyeol.co.kr</span></div>
+    </div>
+    <div class="bi">
+      <div class="bi-lbl">SNS 핸들</div>
+      <div class="tags"><span class="tag">@forest.gyeol</span><span class="tag">@gyeol_official</span></div>
+    </div>
+
+  </div>
+</div>
+<div class="section">
+  <div class="sec-hdr" style="margin-bottom: 32px;">
+    <span class="sec-num" style="color: #888; font-size: 0.9em;">A-1</span>
+    <h2 class="sec-title" style="margin: 4px 0;">브랜드 철학</h2>
+    <span class="sec-sub" style="color: #555;">
+      "우리는 세상이 어떻게 되어야 한다고 믿는가?"
+    </span>
+  </div>
+
+  <div class="hl" style="margin-bottom: 32px;">
+    <div class="c-lbl" style="font-weight: bold; margin-bottom: 12px;">철학 선언문</div>
+    <div class="c-body" style="line-height: 1.6; color: #333;">
+      우리는 매일 차가운 도시의 소음과 속도에 치여 살아갑니다. 그러나 당신이 머무는 가장 사적인 공간만큼은 어떠한 침범도 허락하지 않는 평화로운 숲의 결을 닮아야 한다고 믿습니다. 숲결은 단순히 물건을 파는 곳이 아니라, 당신의 무너진 일상의 리듬을 복원하고 잊고 지냈던 오후의 평화로운 기억을 되찾아주는 조용한 안식처가 되고자 합니다.<br><br>진정한 아름다움은 화려함이 아닌, 손때 묻은 빈티지 가구의 질감이나 창가로 스며드는 부드러운 햇살 같은 자연스러운 온기에 있습니다. 우리는 당신의 손길이 닿는 모든 오브제에 다정한 위로를 담아, 퇴근 후 온전히 자신에게 집중하는 시간을 선물합니다.
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom: 32px; padding: 20px; background-color: #F8F9FA; border-radius: 8px;">
+    <div class="c-lbl" style="font-weight: bold; margin-bottom: 8px;">존재 이유</div>
+    <div style="font-size: 0.85em; color: #777; margin-bottom: 12px;">이 브랜드가 세상에 없었다면?</div>
+    <div class="c-body" style="line-height: 1.5;">무채색으로 변해버린 도시인의 퇴근길 뒤에 따뜻한 감각의 온기를 채워줄 유일한 공간이 되기 위해서 존재합니다.</div>
+  </div>
+
+  <div class="g2" style="display: flex; gap: 24px;">
+    <div class="card" style="flex: 1;">
+      <div class="c-lbl" style="font-weight: bold; color: #D9534F; margin-bottom: 12px;">우리가 거부하는 것</div>
+      <div class="tags"><span class="tag red">차갑고 딱딱한 인공 소재</span><span class="tag red">공장에서 찍어낸 획일화된 취향</span><span class="tag red">빠르게 소비되고 버려지는 트렌드</span></div>
+    </div>
+
+    <div class="card" style="flex: 1;">
+      <div class="c-lbl" style="font-weight: bold; color: #5CB85C; margin-bottom: 12px;">우리가 지지하는 것</div>
+      <div class="tags"><span class="tag green">시간의 흐름이 느껴지는 아날로그</span><span class="tag green">자연을 닮은 부드러운 질감</span><span class="tag green">느린 호흡으로 채워지는 사적인 취향</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-hdr">
+    <span class="sec-num">A-2 · Brand Essence</span>
+    <span class="sec-title">핵심 한 줄 정의</span>
+    <span class="sec-sub">
+      모든 의사결정의 기준이 되는 키워드. 제품 선정, 콘텐츠, 고객 응대 등
+      브랜드의 모든 활동이 이 한 단어로 수렴해야 합니다.
+    </span>
+  </div>
+
+  <!-- 핵심 한 줄 정의 카드 (아래 슬로건 박스와 20px 띄움) -->
+  <div class="card" style="margin-bottom: 20px;">
+    <div class="c-lbl">브랜드 한 줄 정의 (30자 이내)</div>
+    <div class="c-ttl">평화로운 오후의 기억을 담은 레트로 소품 큐레이션</div>
+    <div class="c-body">* 브랜드명과 함께 읽힐 때 즉시 이해되어야 합니다.</div>
+  </div>
+
+  <!-- 브랜드 에센스 키워드 박스 (CSS의 .sl-box 스타일 적용) -->
+  <div class="sl-box">
+    <div class="sl-ko">온기 어린 아날로그</div>
+    <div class="sl-en">Brand Essence Keyword</div>
+  </div>
+
+  <!-- 키워드 풀이 카드 (.g2를 제거하여 자동으로 가로 100% 꽉 차게 배치됨) -->
+  <div class="card">
+    <div class="c-lbl">키워드 풀이 — 실제로 어떻게 구현되나요?</div>
+    <div class="c-body">우리는 손끝에서 느껴지는 질감과 시각적인 편안함을 최우선으로 고려합니다. 엄선된 우드, 리넨, 도자기 소재의 제품들은 공간의 온도를 높이며, 모든 배송 패키지에 정성스러운 아날로그 감성을 담아 고객의 일상에 직접 전달합니다. 단순히 보기 좋은 물건을 넘어 사용자의 삶에 정서적인 안정감을 스며들게 하는 것이 우리의 구현 방식입니다.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-hdr">
+    <span class="sec-num">A-3 · Mission · Vision · Values</span>
+    <span class="sec-title">미션 · 비전 · 핵심 가치</span>
+    <span class="sec-sub">
+      지금 우리가 하는 일(미션), 5~10년 후 되고 싶은 모습(비전),
+      모든 결정을 내릴 때 흔들리지 않는 기준(핵심 가치).
+    </span>
+  </div>
+
+  <div class="g2" style="margin-bottom:22px;">
+    <div class="card hl" style="margin-bottom:0;">
+      <div class="c-lbl">Mission · 지금 우리가 하는 일</div>
+      <div class="c-body" style="font-size:13px;font-weight:500;">우리는 지친 도심의 여성들에게 평화로운 숲의 정서를 담은 소품을 통해 일상의 온전한 쉼을 제공한다.</div>
+    </div>
+    <div class="card hl" style="margin-bottom:0;">
+      <div class="c-lbl">Vision · 5~10년 후 되고 싶은 모습</div>
+      <div class="c-body" style="font-size:13px;font-weight:500;">취향을 넘어 삶의 결을 다듬는 독보적인 감성 라이프스타일 파트너</div>
+    </div>
+  </div>
+
+  <div class="c-lbl" style="margin-bottom:8px;">Core Values · 핵심 가치 — 모든 결정의 기준</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:18%;">가치</th>
+        <th style="width:26%;">한 줄 설명</th>
+        <th>실제로 어떻게 구현되나요?</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><strong>정서적 위로</strong></td>
+          <td>공간에 온기를 더하는 감각</td>
+          <td>심리적 안정감을 주는 베이지 톤과 부드러운 조도의 조명 소품을 최우선으로 선정합니다.</td>
+        </tr>
+        <tr>
+          <td><strong>시간의 가치</strong></td>
+          <td>오래도록 머무는 레트로 감성</td>
+          <td>유행을 타지 않고 세월이 흐를수록 멋이 더해지는 빈티지 디자인의 오브제를 제안합니다.</td>
+        </tr>
+        <tr>
+          <td><strong>자연스러운 결</strong></td>
+          <td>인위적이지 않은 본연의 미</td>
+          <td>나무 본연의 나뭇결이나 천의 질감이 그대로 살아있는 자연 친화적 소재의 제품을 큐레이션합니다.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+<div class="section">
+  <div class="sec-hdr">
+    <span class="sec-num">A-4 · Naming</span>
+    <span class="sec-title">브랜드명 & 네이밍</span>
+    <span class="sec-sub">왜 이 이름인가? 발음의 감성, 의미의 연결, 사업 방향성이 담긴 이름의 탄생 과정.</span>
+  </div>
+
+  <div class="hl" style="margin-bottom:22px;">
+    <div class="c-lbl">최종 브랜드명</div>
+    <div class="c-ttl" style="font-size:28px;font-family:'Noto Serif KR',serif;margin-bottom:5px;">숲결</div>
+    <div style="font-size:14px;color:rgba(30,27,24,0.6);letter-spacing:2px;">Forest Gyeol (forestgyeol.com)</div>
+  </div>
+
+  <div class="g2" style="margin-bottom:18px;">
+    <div class="card">
+      <div class="c-lbl">네이밍 선택 근거</div>
+      <div class="c-body">순우리말 '숲'과 '결'의 합성어로, 숲이 주는 깊은 휴식과 사물이 가진 고유한 질감을 의미합니다. 바쁜 도심의 삶 속에서도 자연의 평온함과 부드러운 리듬을 잃지 않기를 바라는 철학을 담았습니다. 간결한 발음과 서정적인 어감이 30대 여성 타겟에게 세련되면서도 편안한 인상을 줍니다.</div>
+    </div>
+    <div class="card">
+      <div class="c-lbl">이름 탄생 스토리</div>
+      <div class="c-body">숲결은 ‘숲의 숨결’과 ‘나무의 결’이라는 중의적인 의미에서 시작되었습니다. 차가운 콘크리트 숲에서 하루를 보내는 우리가 가장 그리워하는 것은 결국 자연이 주는 무구한 온기라는 사실에 주목했습니다. 거창한 자연으로 떠나지 않아도, 내 방 안의 작은 소품 하나에서 숲의 고요한 결을 느낄 수 있도록 하겠다는 의지를 담아 이름을 지었습니다.</div>
+    </div>
+  </div>
+
+  <hr style="border: none; height: 1px; background-color: #e0e0e0; margin: 32px 0 24px 0;">
+
+  <div class="c-lbl" style="margin-bottom:10px;">대안 네이밍 — 창업자가 비교 후 최종 결정 가능</div>
+  <div class="g2">
+      <div class="card">
+        <div class="c-lbl">대안 네이밍</div>
+        <div class="c-ttl">온목 <span style="font-size:12px;font-weight:300;color:var(--muted);">/ Onmok</span></div>
+        <div class="c-body" style="margin-top:8px;">'따뜻할 온(溫)'과 '나무 목(木)'을 결합하여 나무가 주는 특유의 온기를 강조했습니다. 레트로한 감성과 자연친화적인 소재를 취급하는 브랜드의 정체성을 직관적으로 전달하며, 짧고 명확한 음절로 기억에 오래 남는 이름입니다.</div>
+      </div>
+      <div class="card">
+        <div class="c-lbl">대안 네이밍</div>
+        <div class="c-ttl">오후결 <span style="font-size:12px;font-weight:300;color:var(--muted);">/ Ohu Gyeol</span></div>
+        <div class="c-body" style="margin-top:8px;">브랜드의 핵심 가치인 '평화로운 오후의 기억'을 이름에 직접적으로 반영했습니다. 가장 평화로운 시간대인 오후의 빛과 결을 담아낸 소품들이라는 의미를 가지며, 감성적인 라이프스타일을 추구하는 타겟에게 부드럽게 다가갑니다.</div>
+      </div></div>
+</div>
+
+<div class="section">
+  <div class="sec-hdr">
+    <span class="sec-num">A-5 · Slogans</span>
+    <span class="sec-title">슬로건</span>
+    <span class="sec-sub">고객의 뇌리에 박히는 한 문장. 메인 슬로건 + 상황별 사용 가능한 서브 슬로건 3종.</span>
+  </div>
+
+  <div class="sl-box">
+    <div class="sl-ko">당신의 시선이 머무는 사적인 공간</div>
+    <div class="sl-en">A Private Sanctuary Where Your Gaze Rests</div>
+  </div>
+
+  <div class="card" style="margin-bottom:20px;">
+    <div class="c-lbl">슬로건 의도 — 왜 이 문장인가?</div>
+    <div class="c-body">단순한 인테리어 소품을 넘어, 고객이 자신의 공간을 바라볼 때 느끼는 심리적 만족감과 평온함을 강조했습니다. '시선'과 '사적'이라는 단어를 통해 타인의 시선이 아닌 오직 나만을 위한 치유의 시간을 상징합니다.</div>
+  </div>
+
+  <div class="c-lbl" style="margin-bottom:10px;">서브 슬로건 — 상황별 변형 버전</div>
+  <ul class="sub-lst">
+    <li>
+      평화로운 오후의 온기를 당신의 책상 위로
+      <span class="note">💡 사용처: 제품 상세페이지 도입부 및 시즌 룩북 메인 카피</span>
+    </li>
+    <li>
+      오늘 하루, 당신의 마음은 어떤 결이었나요?
+      <span class="note">💡 사용처: SNS 콘텐츠 및 고객 소통용 감성 문구</span>
+    </li>
+    <li>
+      당신의 하루가 고운 결로 남기를 바랍니다
+      <span class="note">💡 사용처: 제품 패키징 내부 동봉되는 브랜드 카드 및 감사 엽서</span>
+    </li>
+  </ul>
+</div>
+<div class="section">
+  <div class="sec-hdr">
+    <span class="sec-num">A-6 · Brand Story</span>
+    <span class="sec-title">브랜드 스토리</span>
+    <span class="sec-sub">
+      탄생 배경 → 고객의 현실 → 브랜드의 약속 → 함께하는 미래.
+      단순 소개가 아닌, 감정 이입이 가능한 4단계 서사 구조.
+    </span>
+  </div>
+  <div class="story"><p>지하철역의 소음과 서류 뭉치 속에서 숨 가쁘게 흘러가는 직장인의 하루는 때로 우리를 무채색으로 물들입니다. 퇴근길, 차가운 공기를 뚫고 돌아온 집조차 온전한 휴식처가 되지 못하고 그저 잠시 머무는 정거장처럼 느껴질 때가 있습니다. 우리는 매일 반복되는 긴장된 일상 속에서 잠시나마 숨을 고르고 나를 보살필 수 있는 '나만의 작은 숲'이 필요하다는 것을 깨달았습니다.</p><p>'숲결'은 도심의 속도에 지친 당신을 위해, 손길이 닿는 곳마다 포근한 온기를 전하는 오브제를 정성스럽게 큐레이션 합니다. 우리는 유행에 민감한 대량 생산 제품보다는 시간의 흐름을 간직한 레트로한 감성과 자연을 닮은 소재가 주는 힘을 믿습니다. 당신의 시선이 머무는 곳마다 다정한 위로가 닿을 수 있도록, 소박하지만 깊은 결을 가진 소품들을 엄선하여 제안합니다.</p><p>우리의 약속은 거창한 변화가 아닙니다. 찻잔을 내려놓는 코스터의 부드러운 촉감, 책상 한구석에서 은은하게 빛나는 조명처럼 아주 사소한 순간에 평온을 더하는 것입니다. 숲결과 함께하는 공간에서 당신의 흐트러졌던 마음은 서서히 고운 결을 되찾고, 어제보다 조금 더 따뜻한 온도로 채워질 것입니다.</p><p>우리는 당신의 내일이 오늘보다 조금 더 평화로운 리듬으로 흘러가기를 바랍니다. 복잡한 세상을 뒤로하고 문을 닫는 순간, 숲결이 준비한 오후의 조각들이 당신의 지친 영혼을 부드럽게 감싸 안아줄 것입니다. 당신의 가장 사적인 공간이 온전한 치유의 숲이 되는 그 길에 숲결이 언제나 함께하겠습니다.</p></div>
+</div>
+<div class="section">
+  <div class="sec-hdr">
+    <span class="sec-num">A-7 · Market Positioning</span>
+    <span class="sec-title">시장 내 서비스 포지셔닝 및 경쟁력</span>
+    <span class="sec-sub">
+      전체 산업 안에서 숲결이 선점할 핵심 타겟은 어디인가 —
+      경쟁 우위(=시장 진입 전략)와 우리만의 차별화된 가치 제안.
+    </span>
+  </div>
+
+  <div class="c-lbl" style="margin-bottom:8px;">Positioning Statement · 한 줄 포지셔닝 선언</div>
+  <div class="hl" style="margin-bottom:22px;">
+    <p style="font-size:13px;font-weight:500;">For 소소한 취미로 자신만의 공간을 가꾸는 30대 직장 여성, 숲결은(는) 트렌드 중심의 대형 인테리어 소품숍와(과) 달리 평화로운 오후의 기억을 담은 레트로한 감성과 심리적 온기를 제공합니다.</p>
+  </div>
+
+  <div class="c-lbl" style="margin-bottom:10px;">
+    Differentiators · 경쟁사와 다른 점 3가지
+    <span style="font-weight:400;color:var(--muted);"> — 실제 판매 전략의 근거</span>
+  </div>
+  <table style="margin-bottom:20px;">
+    <thead>
+      <tr>
+        <th style="width:34%;">차별화 포인트</th>
+        <th>왜 이것이 우리만의 강점인가?</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><span class="badge">01</span><strong>아날로그 레트로 큐레이션</strong></td>
+          <td>단순한 복고가 아닌, 시간이 흐를수록 깊이를 더하는 천연 소재 중심의 오브제를 통해 사용자에게 정서적 향수를 불러일으킵니다.</td>
+        </tr>
+        <tr>
+          <td><span class="badge">02</span><strong>시각적 피로도를 낮추는 컬러 테라피</strong></td>
+          <td>메인 컬러 #F5EBE0를 기반으로 공간에 자연스럽게 스며드는 톤온톤 배색의 소품만을 제안하여 집안 내 심리적 안정 구역을 조성합니다.</td>
+        </tr>
+        <tr>
+          <td><span class="badge">03</span><strong>사적 취향을 존중하는 슬로우 큐레이션</strong></td>
+          <td>다량 판매를 목적으로 하는 베스트셀러보다, 개인의 은밀하고 조용한 취미 생활을 빛내줄 수 있는 희소성 있는 작가주의 소품에 집중합니다.</td>
+        </tr></tbody>
+  </table>
+
+  <div class="card">
+    <div class="c-lbl">Positioning Map · 시장 내 우리의 위치</div>
+    <div style="margin-top:10px;">
+      <div style="margin-bottom:8px;">
+        <strong style="font-size:11px;color:var(--sd);">X축</strong>
+        <span style="font-size:12px;color:#4A4642;margin-left:8px;">감성 속도 (트렌디함 vs 아날로그/지속성)</span>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:11px;color:var(--sd);">Y축</strong>
+        <span style="font-size:12px;color:#4A4642;margin-left:8px;">공간 성격 (공용 공간/거실 vs 사적 공간/침실/서재)</span>
+      </div>
+      <div style="background:#FAF5EE;border-radius:8px;padding:13px 17px;">
+        <strong style="font-size:11px;color:var(--sd);">우리의 위치</strong>
+        <div style="font-size:12px;color:#3A3733;margin-top:4px;line-height:1.8;">트렌드에 휘둘리지 않는 '지속 가능한 아날로그 감성'과 지극히 '사적인 공간'의 교차점에 위치하여 독보적인 평온함을 선사함</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="sec-hdr">
+    <span class="sec-num">A-8 · Brand Promise</span>
+    <span class="sec-title">고객에게 매번 하는 약속</span>
+    <span class="sec-sub">
+      마케팅 문구, 패키징, 고객 응대(CS) — 모든 접점에서 일관되게 전달하는 하나의 약속.
+      고객이 어디서 브랜드를 만나도 같은 온도를 느끼게 합니다.
+    </span>
+  </div>
+
+  <div class="sl-box" style="margin-bottom:22px;">
+    <div class="sl-ko" style="font-size:17px;">우리는 당신에게 항상 [도심 속에서도 숲의 결을 느낄 수 있는 온전한 휴식]을(를) 드립니다.</div>
+    <div class="sl-en">Brand Promise Declaration</div>
+  </div>
+
+  <div class="c-lbl" style="margin-bottom:12px;">
+    채널별 실행 방식
+    <span style="font-weight:400;color:var(--muted);"> — 이 약속이 실제로 어디에 어떻게 쓰이나요?</span>
+  </div>
+  
+    <div class="promise">
+      <div class="ch">📍 마케팅 메시지</div>
+      <div class="ct">제품의 스펙 나열 대신, '오늘 하루 고생한 당신의 손길이 닿는 곳에 머무는 따스한 햇살'과 같은 감성적 서사 중심의 콘텐츠를 발행합니다.</div>
+    </div>
+    <div class="promise">
+      <div class="ch">📍 패키징/언박싱</div>
+      <div class="ct">비닐 뽁뽁이 대신 무표백 재생지와 마 노끈을 사용하고, 숲의 향을 머금은 시그니처 향페이퍼를 동봉하여 개봉 시 자연의 경험을 제공합니다.</div>
+    </div>
+    <div class="promise">
+      <div class="ch">📍 고객 응대(CS)</div>
+      <div class="ct">기계적인 답변 대신 '오늘 귀하의 공간에 숲결이 작은 위로가 되었기를 바랍니다'라는 진심 어린 문장으로 상담을 마무리하여 브랜드의 온기를 전달합니다.</div>
+    </div>
+</div>
+</body>
+</html>
